@@ -223,7 +223,6 @@ etc.
             for i in range(num)
         ]
 
-
 # Global generator instance
 _generator = None
 
