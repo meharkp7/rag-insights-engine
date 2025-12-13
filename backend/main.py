@@ -47,7 +47,7 @@ def root():
             "upload": "POST /api/upload-docs",
             "list_docs": "GET /api/docs",
             "run_rag": "POST /api/run-rag",
-            "evaluate": "POST /api/evaluate",
+            "evaluate": "POST /api/run-experiment",
         },
     }
 
