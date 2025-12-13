@@ -27,6 +27,8 @@ numpy==1.26.4
 
 # Environment variables
 python-dotenv==1.0.0
+sqlalchemy
+psycopg2-binary
 
 # Optional: for better token counting
 # tiktoken==0.5.1
