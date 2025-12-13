@@ -23,7 +23,11 @@ class EmbeddingService:
 
         # Load SentenceTransformer model
         try:
-            self._st_model = SentenceTransformer(self.model)
+            token = os.getenv("HF_TOKEN")
+            SentenceTransformer(
+                self.model,
+                use_auth_token=token
+            )
             print(f"✓ Loaded embedding model: {self.model}")
         except Exception as e:
             raise RuntimeError(
