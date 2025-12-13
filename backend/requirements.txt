@@ -1,18 +1,29 @@
-# Core FastAPI
+# ---- Force CPU-only Torch (MUST be first) ----
+--extra-index-url https://download.pytorch.org/whl/cpu
+torch==2.2.2+cpu
+
+# ---- Core API ----
 fastapi==0.104.1
 uvicorn[standard]==0.24.0
 python-multipart==0.0.6
 pydantic==2.5.0
+python-dotenv==1.0.0
 
-# Document Processing
+# ---- Docs ----
 pdfplumber==0.10.3
 python-docx==1.1.0
 
-groq>=0.4.0
-sentence-transformers>=2.2.0,<3.0.0
-# Vector Search (optional but recommended)
+# ---- LLM ----
+groq==0.37.1
+
+# ---- Sentence Transformers (LOCKED, CPU-safe) ----
+sentence-transformers==2.6.1
+transformers==4.39.3
+tokenizers==0.15.2
+
+# ---- Vector Search ----
 faiss-cpu==1.10.0
-numpy>=1.24.3,<2.0.0
+numpy==1.26.4
 
 # Environment variables
 python-dotenv==1.0.0
@@ -23,4 +34,4 @@ python-dotenv==1.0.0
 # Optional: for OCR fallback
 # pytesseract==0.3.10
 # pdf2image==1.16.3
-# Pillow==10.1.0
+# Pillow==10.1.0s
