@@ -24,7 +24,7 @@ class EmbeddingService:
         # Load SentenceTransformer model
         try:
             token = os.getenv("HF_TOKEN")
-            SentenceTransformer(
+            self._st_model = SentenceTransformer(
                 self.model,
                 use_auth_token=token
             )
