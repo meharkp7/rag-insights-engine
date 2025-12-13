@@ -166,3 +166,11 @@ async def batch_evaluate(queries: List[Dict[str, Any]]):
         "results": results,
         "average_scores": avg_scores
     }
+
+@router.post("/run-experiment")
+async def run_experiment(request: ComparisonRequest):
+    """
+    Alias endpoint for frontend compatibility.
+    Internally calls compare_pipelines.
+    """
+    return await compare_pipelines(request)
