@@ -1,6 +1,6 @@
 # ---- Force CPU-only Torch (MUST be first) ----
 --extra-index-url https://download.pytorch.org/whl/cpu
-torch==2.2.2+cpu
+torch>=2.5.0,<2.6.0
 
 # ---- Core API ----
 fastapi==0.104.1
