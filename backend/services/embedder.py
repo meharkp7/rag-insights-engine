@@ -19,13 +19,14 @@ _lock = threading.Lock()
 class EmbeddingService:
     def __init__(self, model_name: str = None):
         self.model = model_name or EMBEDDING_MODEL
-        self.cache: Dict[str, List[float]] = {}
-
+        self.cache: {}
+        os.makedirs(CACHE_DIR, exist_ok=True)
         # Load SentenceTransformer model
         try:
             token = os.getenv("HF_TOKEN")
             self._st_model = SentenceTransformer(
                 self.model,
+                cache_folder=CACHE_DIR,
                 use_auth_token=token
             )
             print(f"✓ Loaded embedding model: {self.model}")
