@@ -102,7 +102,6 @@ class EmbeddingService:
 _embedder = None
 _embedder_lock = threading.Lock()
 
-
 def get_embedder(model_name: str = None) -> EmbeddingService:
     global _embedder
     with _embedder_lock:
