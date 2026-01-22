@@ -274,3 +274,14 @@ For issues and questions, please open an issue on GitHub.
 ---
 
 **Built with ❤️ using FastAPI, React, and Google Gemini AI**
+
+---
+title: RAG Insights Engine
+emoji: 🚀
+colorFrom: purple
+colorTo: blue
+sdk: docker
+app_port: 7860
+---
+
+RAG Insights Engine – FastAPI + FAISS + LLM
