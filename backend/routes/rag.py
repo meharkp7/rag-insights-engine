@@ -31,7 +31,7 @@ class RAGExperimentRequest(BaseModel):
     doc_ids: List[str]
     chunk_sizes: List[int] = [256, 512, 1024, 2048]
     overlap_percent: int = 10
-    top_k: int = 5
+    top_k: int = 3
     model_name: str = "llama-3.1-8b-instant"  # Updated to Groq model
 
 
@@ -75,6 +75,8 @@ async def run_rag(request: RAGRequest):
             method="words"
         )
         chunks = chunks_dict.get(str(request.chunk_size), [])
+        MAX_CHUNKS = 100
+        chunks = chunks[:MAX_CHUNKS]
         total_chunks += len(chunks)
 
         retriever.add_documents(
@@ -113,7 +115,7 @@ async def run_rag(request: RAGRequest):
         query=request.query,
         context_chunks=context_chunks,
         model_name=request.model_name,  # Pass model_name to generator
-        max_tokens=2048,
+        max_tokens=512,
         temperature=request.temperature
     )
 
@@ -196,6 +198,6 @@ def get_retriever_stats():
 
 @router.post("/clear-index")
 def clear_index():
-    retriever = get_retriever()
+    retriever = get_retriever(clear=True)
     retriever.clear()
     return {"message": "Index cleared successfully"}
