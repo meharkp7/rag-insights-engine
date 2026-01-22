@@ -5,7 +5,6 @@ from fastapi.staticfiles import StaticFiles
 from contextlib import asynccontextmanager
 
 from backend.db import engine, Base
-from backend.models.document import Document
 from backend.routes import upload, rag, evaluate
 
 os.makedirs("data/uploads", exist_ok=True)
