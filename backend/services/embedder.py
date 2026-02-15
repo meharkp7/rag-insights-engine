@@ -20,7 +20,7 @@ _lock = threading.Lock()
 class EmbeddingService:
     def __init__(self, model_name: str = None):
         self.model = model_name or EMBEDDING_MODEL
-        self.cache: {}
+        self.cache = {}
         os.makedirs(CACHE_DIR, exist_ok=True)
         # Load SentenceTransformer model
         try:

@@ -4,8 +4,8 @@ from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
 from contextlib import asynccontextmanager
 
-from backend.db import engine, Base
-from backend.routes import upload, rag, evaluate
+from db import engine, Base
+from routes import upload, rag, evaluate
 
 os.makedirs("data/uploads", exist_ok=True)
 os.makedirs("data/embeddings", exist_ok=True)
@@ -42,4 +42,5 @@ def startup_db():
     Base.metadata.create_all(bind=engine)
 
 # 🔥 FRONTEND SERVE (LAST LINE)
-app.mount("/", StaticFiles(directory="dist", html=True), name="frontend")
+if os.path.isdir("dist"):
+    app.mount("/", StaticFiles(directory="dist", html=True), name="frontend")

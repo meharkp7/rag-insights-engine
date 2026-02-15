@@ -2,7 +2,7 @@
 from typing import List, Dict, Any
 import numpy as np
 import faiss
-from backend.services.embedder import get_embedder
+from services.embedder import get_embedder
 
 
 class FAISSRetriever:

@@ -1,6 +1,8 @@
 // API service for backend integration
-const API_BASE_URL = import.meta.env.VITE_API_BASE as string || 'http://localhost:8000';
-
+const API_BASE_URL =
+  import.meta.env.VITE_API_BASE ??
+  "https://rag-insights-engine-32jp.onrender.com";
+  
 export interface Document {
   doc_id: string;
   filename: string;
