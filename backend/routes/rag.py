@@ -3,11 +3,11 @@ from pydantic import BaseModel
 from typing import List, Dict, Any, Optional
 import time
 
-from services.chunker import create_chunks
-from services.embedder import get_embedder
-from services.retriever import get_retriever
-from services.generator import get_generator
-from routes.upload import get_docs_store
+from backend.services.chunker import create_chunks
+from backend.services.embedder import get_embedder
+from backend.services.retriever import get_retriever
+from backend.services.generator import get_generator
+from backend.routes.upload import get_docs_store
 
 router = APIRouter()
 
