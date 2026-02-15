@@ -4,7 +4,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
 from contextlib import asynccontextmanager
 
-from baackend.db import engine, Base
+from backend.db import engine, Base
 from backend.routes import upload, rag, evaluate
 
 os.makedirs("data/uploads", exist_ok=True)
